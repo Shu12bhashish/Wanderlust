@@ -5,9 +5,7 @@ if(process.env.NODE_ENV != "production") {
  
 const express = require("express");
 const app = express();
-app.use("/ping", (req, res) => {
-  return res.send("OK");
-});
+
 const mongoose = require("mongoose");
 const path = require("path");
 const methodOverride = require("method-override");
@@ -119,7 +117,9 @@ app.use((err,req,res,next)=>{
     res.status(statusCode).render("error.ejs",{message});
     //res.status(statusCode).send(message);
 });
-
+app.use("/ping", (req, res) => {
+  return res.send("OK");
+});
 
 app.listen(8080, ()=>{
     console.log("server is listing to port 8080");
