@@ -118,3 +118,6 @@ app.use((err,req,res,next)=>{
 app.listen(8080, ()=>{
     console.log("server is listing to port 8080");
 });
+app.get("/ping", (req, res) => {
+  res.send("Server is alive");
+});
