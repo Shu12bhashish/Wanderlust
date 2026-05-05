@@ -100,6 +100,10 @@ app.use((req,res,next)=>{
     res.send(registeredUser);
 })*/
 
+app.get("/ping", (req, res) => {
+  res.send("Server is alive");
+});
+
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews",reviewRouter);
 app.use("/", userRouter);
@@ -114,9 +118,7 @@ app.use((err,req,res,next)=>{
     res.status(statusCode).render("error.ejs",{message});
     //res.status(statusCode).send(message);
 });
-app.get("/ping", (req, res) => {
-  res.send("Server is alive");
-});
+
 
 app.listen(8080, ()=>{
     console.log("server is listing to port 8080");
