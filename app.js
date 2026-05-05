@@ -5,6 +5,9 @@ if(process.env.NODE_ENV != "production") {
  
 const express = require("express");
 const app = express();
+app.use("/ping", (req, res) => {
+  return res.send("OK");
+});
 const mongoose = require("mongoose");
 const path = require("path");
 const methodOverride = require("method-override");
@@ -100,9 +103,7 @@ app.use((req,res,next)=>{
     res.send(registeredUser);
 })*/
 
-app.get("/ping", (req, res) => {
-  res.send("Server is alive");
-});
+
 
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews",reviewRouter);
