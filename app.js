@@ -114,10 +114,11 @@ app.use((err,req,res,next)=>{
     res.status(statusCode).render("error.ejs",{message});
     //res.status(statusCode).send(message);
 });
+app.get("/ping", (req, res) => {
+  res.send("Server is alive");
+});
 
 app.listen(8080, ()=>{
     console.log("server is listing to port 8080");
 });
-app.get("/ping", (req, res) => {
-  res.send("Server is alive");
-});
+
