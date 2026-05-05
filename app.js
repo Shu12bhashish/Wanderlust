@@ -106,7 +106,7 @@ app.get("/ping", (req, res) => {
 
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews",reviewRouter);
-app.use("/", userRouter);
+app.use("/user", userRouter);
 
 
 app.all("*",(req,res,next) => {
